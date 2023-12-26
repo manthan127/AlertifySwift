@@ -31,6 +31,18 @@ struct Defaults {
     func removeObject(forKey key: String) {
         userDefaults.removeObject(forKey: key)
     }
+
+    subscript<E: Codable>(key: String) -> E? {
+        get {
+            object(forType: E.self, forKey: key)
+        } set {
+            if newValue == nil {
+                removeObject(forKey: key)
+            } else {
+                set(newValue, forKey: key)
+            }
+        }
+    }
     
     func object<D: Decodable>(forType: D.Type, forKey key: String)-> D? {
         var object: D? = nil
