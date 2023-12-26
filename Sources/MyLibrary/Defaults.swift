@@ -19,7 +19,10 @@ struct Defaults {
         }
     }
 
-    func set<E: Encodable>(_ object: E, forKey key: String) {
+    func set<E: Encodable>(_ object: E?, forKey key: String) {
+        if object == nil {
+            return removeObject(forKey: key)
+        }
         do {
             let data = try JSONEncoder().encode(object)
             userDefaults.set(data, forKey: key)

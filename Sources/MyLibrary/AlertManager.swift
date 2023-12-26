@@ -20,7 +20,7 @@ class AlertManager {
         return rootVC
     }
 
-    private init(){
+    init(){
         processView.backgroundColor = .white
         processView.layer.cornerRadius = 10
         processView.layer.shadowRadius = 10
