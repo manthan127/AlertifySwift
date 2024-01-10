@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//TODO: Add navigation (if possible)
 @available(iOS 13.0, *)
 class AlertManager {
     public static let shared = AlertManager()
@@ -37,7 +38,7 @@ class AlertManager {
         ])
     }
     
-    //MARK: Show Error in alert    
+    //MARK: Show Error in alertView
     public func presentError(_ message: String, animated: Bool = true, completion: (() -> Void)? = nil) {
         let alert = UIAlertController()
         let ok = UIAlertAction(title: "OK", style: .default) { _ in

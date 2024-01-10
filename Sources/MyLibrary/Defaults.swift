@@ -7,16 +7,21 @@
 
 import Foundation
 
-struct Defaults {
+class Defaults {
     static public var standard = Defaults()
 
     private let userDefaults: UserDefaults
-    public init(suiteName: String? = nil) {
-        if let suiteName = suiteName {
-            self.userDefaults = UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
-        } else {
-            self.userDefaults = UserDefaults.standard
-        }
+
+    public init() {
+        self.userDefaults = .standard
+    }
+
+    public init(suiteName: String) {
+        self.userDefaults = UserDefaults(suiteName: suiteName) ?? .standard
+    }
+
+    public init(withSuite suite: UserDefaults) {
+        self.userDefaults = suite
     }
 
     public func set<E: Encodable>(_ object: E?, forKey key: String) {
@@ -35,18 +40,6 @@ struct Defaults {
         userDefaults.removeObject(forKey: key)
     }
 
-    public subscript<E: Codable>(key: String) -> E? {
-        get {
-            object(forType: E.self, forKey: key)
-        } set {
-            if newValue == nil {
-                removeObject(forKey: key)
-            } else {
-                set(newValue, forKey: key)
-            }
-        }
-    }
-    
     public func object<D: Decodable>(forType: D.Type, forKey key: String)-> D? {
         var object: D? = nil
         do {
@@ -57,5 +50,17 @@ struct Defaults {
             fatalError(error.localizedDescription)
         }
         return object
+    }
+
+    public subscript<E: Codable>(key: String) -> E? {
+        get {
+            object(forType: E.self, forKey: key)
+        } set {
+            if newValue == nil {
+                removeObject(forKey: key)
+            } else {
+                set(newValue, forKey: key)
+            }
+        }
     }
 }
