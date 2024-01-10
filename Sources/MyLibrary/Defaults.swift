@@ -8,18 +8,18 @@
 import Foundation
 
 struct Defaults {
-    static var standard = Defaults()
+    static public var standard = Defaults()
 
     private let userDefaults: UserDefaults
-    init(s: String? = nil) {
-        if let s = s {
-            self.userDefaults = UserDefaults(suiteName: s) ?? UserDefaults.standard
+    public init(suiteName: String? = nil) {
+        if let suiteName = suiteName {
+            self.userDefaults = UserDefaults(suiteName: suiteName) ?? UserDefaults.standard
         } else {
             self.userDefaults = UserDefaults.standard
         }
     }
 
-    func set<E: Encodable>(_ object: E?, forKey key: String) {
+    public func set<E: Encodable>(_ object: E?, forKey key: String) {
         if object == nil {
             return removeObject(forKey: key)
         }
@@ -31,11 +31,11 @@ struct Defaults {
         }
     }
     
-    func removeObject(forKey key: String) {
+    public func removeObject(forKey key: String) {
         userDefaults.removeObject(forKey: key)
     }
 
-    subscript<E: Codable>(key: String) -> E? {
+    public subscript<E: Codable>(key: String) -> E? {
         get {
             object(forType: E.self, forKey: key)
         } set {
@@ -47,7 +47,7 @@ struct Defaults {
         }
     }
     
-    func object<D: Decodable>(forType: D.Type, forKey key: String)-> D? {
+    public func object<D: Decodable>(forType: D.Type, forKey key: String)-> D? {
         var object: D? = nil
         do {
             if let data = userDefaults.data(forKey: key) {
