@@ -45,6 +45,8 @@ do {
     result = try await callApi()
 } catch {
     AlertManager.shared.presentError("error message you need to display")
+    // OR
+    AlertManager.shared.presentError(error)
 }
 ```
 
