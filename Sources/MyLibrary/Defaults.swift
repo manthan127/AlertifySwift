@@ -16,8 +16,12 @@ class Defaults {
         self.userDefaults = .standard
     }
 
-    public init(suiteName: String) {
-        self.userDefaults = UserDefaults(suiteName: suiteName) ?? .standard
+    public init?(suiteName: String) {
+        if let userDefaults = UserDefaults(suiteName: suiteName) {
+            self.userDefaults = userDefaults
+        } else {
+            return nil
+        }
     }
 
     public init(withSuite suite: UserDefaults) {
