@@ -51,3 +51,11 @@ extension AlertManager {
         rootViewController?.present(alert, animated: animated, completion: completion)
     }
 }
+
+extension UIAlertAction {
+    convenience init (title: String?, style: Style = .default, action: (() -> ())? = nil) {
+        self.init(title: title, style: style) { _ in
+            action?()
+        }
+    }
+}
