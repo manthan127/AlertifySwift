@@ -12,30 +12,39 @@ import SwiftUI
 extension AlertManager {
     typealias Style = UIAlertController.Style
 
-    private func createAlert(title: String? = nil, message: String?, style: Style = .alert, actions: [UIAlertAction] = []) -> UIAlertController {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    private func createAlert(
+        title: String? = nil, message: String, style: Style = .alert,
+        actions: [UIAlertAction] = []
+    ) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         if actions.isEmpty {
             let ok = UIAlertAction(title: "OK", style: .default) { _ in
                 self.removeProcessView()
             }
             alert.addAction(ok)
         } else {
-            actions.forEach {
-                alert.addAction($0)
-            }
+            actions.forEach(alert.addAction(_:))
         }
 
         return alert
     }
 
-    public func presentAlert(title: String? = nil, message: String, style: Style = .alert, animated: Bool = true, completion: (() -> Void)? = nil) {
+    public func presentAlert(
+        title: String? = nil, message: String, style: Style = .alert,
+        actions: [UIAlertAction] = [],
+        animated: Bool = true, completion: (() -> Void)? = nil
+    ) {
         let alert = createAlert(title: title, message: message, style: style)
 
         present(alert: alert, animated: animated, completion: completion)
     }
 
-    public func present(error: Error, style: Style = .alert, animated: Bool = true, completion: (() -> Void)? = nil) {
-        presentAlert(message: error.localizedDescription, animated: animated, completion: completion)
+    public func present(
+        error: Error, style: Style = .alert,
+        actions: [UIAlertAction] = [],
+        animated: Bool = true, completion: (() -> Void)? = nil)
+    {
+        presentAlert(message: error.localizedDescription, style: style, actions: actions, animated: animated, completion: completion)
     }
 
     public func present(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
