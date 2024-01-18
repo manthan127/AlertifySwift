@@ -34,7 +34,7 @@ extension AlertManager {
         actions: [UIAlertAction] = [],
         animated: Bool = true, completion: (() -> Void)? = nil
     ) {
-        let alert = createAlert(title: title, message: message, style: style)
+        let alert = createAlert(title: title, message: message, style: style, actions: actions)
 
         present(alert: alert, animated: animated, completion: completion)
     }
