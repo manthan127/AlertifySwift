@@ -10,7 +10,7 @@ import SwiftUI
 
 //MARK: Show Error in alertView
 extension AlertManager {
-    typealias Style = UIAlertController.Style
+    public typealias Style = UIAlertController.Style
 
     private func createAlert(
         title: String? = nil, message: String, style: Style = .alert,

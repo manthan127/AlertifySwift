@@ -8,8 +8,7 @@
 import SwiftUI
 
 //TODO: Add navigation (if possible)
-@available(iOS 13.0, *)
-class AlertManager {
+public class AlertManager {
     public static let shared = AlertManager()
 
     var rootViewController: UIViewController? {

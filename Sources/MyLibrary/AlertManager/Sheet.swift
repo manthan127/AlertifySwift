@@ -10,16 +10,24 @@ import SwiftUI
 // MARK: present sheet
 extension AlertManager {
     public func present<content: View>(
-        view: content, animated: Bool = true,
-        modalInPresentation: Bool = false, completion: (() -> Void)? = nil
+        view: content, modalInPresentation: Bool = false,
+        animated: Bool = true, completion: (() -> Void)? = nil
     ) {
         let vc = UIHostingController(rootView: view)
-        present(viewController: vc, animated: animated, modalInPresentation: modalInPresentation, completion: completion)
+        present(viewController: vc, modalInPresentation: modalInPresentation, animated: animated, completion: completion)
+    }
+    
+    public func present<content: View>(
+        @ViewBuilder view: ()-> content, modalInPresentation: Bool = false,
+        animated : Bool = true, completion: (() -> Void)? = nil
+    ) {
+        let vc = UIHostingController(rootView: view())
+        present(viewController: vc, modalInPresentation: modalInPresentation, animated: animated, completion: completion)
     }
 
     public func present(
-        viewController: UIViewController, animated: Bool = true,
-        modalInPresentation: Bool = false, completion: (() -> Void)? = nil
+        viewController: UIViewController, modalInPresentation: Bool = false,
+        animated: Bool = true, completion: (() -> Void)? = nil
     ) {
         viewController.isModalInPresentation = modalInPresentation
         rootViewController?.present(viewController, animated: animated, completion: completion)
