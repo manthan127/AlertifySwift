@@ -5,7 +5,6 @@
 //  Created by PC on 12/01/24.
 //
 
-import UIKit
 import SwiftUI
 
 //MARK: Show Error in alertView
@@ -53,7 +52,7 @@ extension AlertManager {
 }
 
 extension UIAlertAction {
-    convenience init (title: String?, style: Style = .default, action: (() -> ())? = nil) {
+    public convenience init (title: String?, style: Style = .default, action: (() -> ())? = nil) {
         self.init(title: title, style: style) { _ in
             action?()
         }

@@ -14,15 +14,18 @@ extension AlertManager {
         animated: Bool = true, completion: (() -> Void)? = nil
     ) {
         let vc = UIHostingController(rootView: view)
-        present(viewController: vc, modalInPresentation: modalInPresentation, animated: animated, completion: completion)
+        vc.isModalInPresentation = modalInPresentation
+        rootViewController?.present(vc, animated: animated, completion: completion)
     }
-    
+
     public func present<content: View>(
-        @ViewBuilder view: ()-> content, modalInPresentation: Bool = false,
-        animated : Bool = true, completion: (() -> Void)? = nil
+        modalInPresentation: Bool = false,
+        animated: Bool = true, completion: (() -> Void)? = nil,
+        @ViewBuilder view: () -> content
     ) {
         let vc = UIHostingController(rootView: view())
-        present(viewController: vc, modalInPresentation: modalInPresentation, animated: animated, completion: completion)
+        vc.isModalInPresentation = modalInPresentation
+        rootViewController?.present(vc, animated: animated, completion: completion)
     }
 
     public func present(
