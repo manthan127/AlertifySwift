@@ -41,12 +41,10 @@ public class AlertManager {
     }
 }
 
-
 extension EnvironmentValues {
-    public static var alertManager = AlertManager.shared
-//    public var alertManager: AlertManager{
-//        get {
-//            AlertManager.shared
-//        }
-//    }
+    public var alertManager: AlertManager{
+        get {
+            AlertManager.shared
+        }
+    }
 }
