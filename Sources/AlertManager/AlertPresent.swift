@@ -8,11 +8,9 @@
 import SwiftUI
 
 //MARK: Show Error in alertView
-extension AlertManager {
-    public typealias Style = UIAlertController.Style
-
+public extension AlertManager {
     private func createAlert(
-        title: String? = nil, message: String, style: Style = .alert,
+        title: String? = nil, message: String, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = []
     ) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
@@ -28,25 +26,25 @@ extension AlertManager {
         return alert
     }
 
-    public func presentAlert(
-        title: String? = nil, message: String, style: Style = .alert,
+    func displayAlert(
+        title: String? = nil, message: String, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
         animated: Bool = true, completion: (() -> Void)? = nil
     ) {
         let alert = createAlert(title: title, message: message, style: style, actions: actions)
 
-        present(alert: alert, animated: animated, completion: completion)
+        display(alert: alert, animated: animated, completion: completion)
     }
 
-    public func present(
-        error: Error, style: Style = .alert,
+    func display(
+        error: Error, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
         animated: Bool = true, completion: (() -> Void)? = nil)
     {
-        presentAlert(message: error.localizedDescription, style: style, actions: actions, animated: animated, completion: completion)
+        displayAlert(message: error.localizedDescription, style: style, actions: actions, animated: animated, completion: completion)
     }
 
-    public func present(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
+    func display(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
         rootViewController?.present(alert, animated: animated, completion: completion)
     }
 }

@@ -6,9 +6,9 @@ Class 'AlertManager' can be used to show popups in your app from anywhere it wil
 do {
     result = try await callApi()
 } catch {
-    AlertManager.shared.presentAlert(message: "error message you need to display")
+    AlertManager.shared.displayAlert(message: "error message you need to display")
     // OR
-    AlertManager.shared.present(error: error)
+    AlertManager.shared.display(error: error)
 }
 ```
 

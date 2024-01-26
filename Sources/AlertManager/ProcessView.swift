@@ -8,8 +8,8 @@
 import UIKit
 
 //MARK: Process view
-extension AlertManager {
-    public func showProcessView() {
+public extension AlertManager {
+    func showProcessView() {
         guard let view = rootViewController?.view else {return}
         view.addSubview(processView)
         activityView.startAnimating()
@@ -19,7 +19,7 @@ extension AlertManager {
         ])
     }
 
-    public func removeProcessView() {
+    func removeProcessView() {
         activityView.stopAnimating()
         processView.removeFromSuperview()
     }

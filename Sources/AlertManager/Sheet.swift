@@ -8,35 +8,35 @@
 import SwiftUI
 
 // MARK: present sheet
-extension AlertManager {
-    public func present<content: View>(
-        view: content, modalInPresentation: Bool = false,
+public extension AlertManager {
+    func present<content: View>(
+        view: content, dismissOnSwipe: Bool = true,
         animated: Bool = true, completion: (() -> Void)? = nil
     ) {
         let vc = UIHostingController(rootView: view)
-        vc.isModalInPresentation = modalInPresentation
+        vc.isModalInPresentation = !dismissOnSwipe
         rootViewController?.present(vc, animated: animated, completion: completion)
     }
 
-    public func present<content: View>(
-        modalInPresentation: Bool = false,
+    func present<content: View>(
+        dismissOnSwipe: Bool = true,
         animated: Bool = true, completion: (() -> Void)? = nil,
         @ViewBuilder view: () -> content
     ) {
         let vc = UIHostingController(rootView: view())
-        vc.isModalInPresentation = modalInPresentation
+        vc.isModalInPresentation = !dismissOnSwipe
         rootViewController?.present(vc, animated: animated, completion: completion)
     }
 
-    public func present(
-        viewController: UIViewController, modalInPresentation: Bool = false,
+    func present(
+        viewController: UIViewController, dismissOnSwipe: Bool = true,
         animated: Bool = true, completion: (() -> Void)? = nil
     ) {
-        viewController.isModalInPresentation = modalInPresentation
+        viewController.isModalInPresentation = !dismissOnSwipe
         rootViewController?.present(viewController, animated: animated, completion: completion)
     }
 
-    public func dismiss(completion: (() -> Void)? = nil) {
+    func dismiss(completion: (() -> Void)? = nil) {
         rootViewController?.dismiss(animated: true, completion: completion)
     }
 }
