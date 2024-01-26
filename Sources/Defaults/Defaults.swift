@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Defaults {
+public class Defaults {
     static public var standard = Defaults()
 
     private let userDefaults: UserDefaults
