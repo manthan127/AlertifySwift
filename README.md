@@ -2,6 +2,7 @@
 
 Class 'AlertManager' can be used to show popups in your app from anywhere it will find the current screen the user is using and show a popup on that screen
 
+AlertManager Provides framework-independent (UIKit or SwiftUI) functions to show system popups easily
 ```
 do {
     result = try await callApi()
@@ -13,7 +14,8 @@ do {
 ```
 
 # Defaults
-The class Defaults uses UserDefaults provided by swift to store data for your app using string as keys.
+The class Defaults uses UserDefaults provided by Swift to store data for your app using strings as keys.
+Defaults provide functions that make it simple to store data on the device
 - to set data
 ```
 Defaults.standard.set(data, forKey: "key")
@@ -38,7 +40,7 @@ You can give suiteName to this class just like UserDefaults
 let suiteDefault = Defaults(suiteName: "suite_name") // suiteDefault.Type is Defaults?
 ```
 
-You can aslo give it your userDefaults to use
+You can also give it your userDefaults to use
 ```
 let suiteDefault = Defaults(withSuite: UserDefaults(suiteName: "suite_name") ?? .standard)
 ```
