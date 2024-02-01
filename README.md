@@ -1,8 +1,8 @@
 # AlertManager
 
-Class 'AlertManager' can be used to show popups in your app from anywhere it will find the current screen the user is using and show a popup on that screen
+Class 'AlertManager' can be used to show popups in your iOS app from anywhere it will find the current screen the user is using and show a popup on that screen
 
-AlertManager Provides framework-independent (UIKit or SwiftUI) functions to show system popups easily
+AlertManager Provides framework-independent (UIKit or SwiftUI) functions to show system popups easily in your iOS App
 ```
 do {
     result = try await callApi()
