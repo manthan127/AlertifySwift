@@ -1,13 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by PC on 12/01/24.
-//
-
 import SwiftUI
 
-// MARK: present sheet
+// MARK: Sheets
 public extension AlertManager {
     func present<content: View>(
         view: content, dismissOnSwipe: Bool = true,

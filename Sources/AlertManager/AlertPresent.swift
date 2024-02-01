@@ -1,13 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by PC on 12/01/24.
-//
-
 import SwiftUI
 
-//MARK: Show Error in alertView
+//MARK: Alert
 public extension AlertManager {
     private func createAlert(
         title: String? = nil, message: String, style: UIAlertController.Style = .alert,
@@ -49,8 +42,8 @@ public extension AlertManager {
     }
 }
 
-extension UIAlertAction {
-    public convenience init (title: String?, style: Style = .default, action: (() -> ())? = nil) {
+public extension UIAlertAction {
+    convenience init (title: String?, style: Style = .default, action: (() -> Void)? = nil) {
         self.init(title: title, style: style) { _ in
             action?()
         }

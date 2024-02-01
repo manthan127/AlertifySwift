@@ -1,10 +1,3 @@
-//
-//  AlertManager.swift
-//  chatApp
-//
-//  Created by PC on 14/12/23.
-//
-
 import SwiftUI
 
 //TODO: Add navigation (if possible)

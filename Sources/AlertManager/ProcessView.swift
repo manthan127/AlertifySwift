@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by PC on 12/01/24.
-//
-
 import UIKit
 
 //MARK: Process view
