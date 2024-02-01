@@ -32,6 +32,7 @@ AlertManager.shared.present(view: SwiftUIView())
 AlertManager.shared.present {
     SwiftUIView()
 }
+
 //you can also give your ViewControllers to present on sheets
 AlertManager.shared.present(viewController: vc)
 ```
