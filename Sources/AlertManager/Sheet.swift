@@ -8,6 +8,7 @@ public extension AlertManager {
     ) {
         let vc = UIHostingController(rootView: view)
         vc.isModalInPresentation = !dismissOnSwipe
+
         rootViewController?.present(vc, animated: animated, completion: completion)
     }
 
@@ -18,6 +19,7 @@ public extension AlertManager {
     ) {
         let vc = UIHostingController(rootView: view())
         vc.isModalInPresentation = !dismissOnSwipe
+
         rootViewController?.present(vc, animated: animated, completion: completion)
     }
 

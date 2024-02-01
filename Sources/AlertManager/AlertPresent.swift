@@ -5,8 +5,10 @@ public extension AlertManager {
     private func createAlert(
         title: String? = nil, message: String, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = []
-    ) -> UIAlertController {
+    ) -> UIAlertController
+    {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+
         if actions.isEmpty {
             let ok = UIAlertAction(title: "OK", style: .default) { _ in
                 self.removeProcessView()
@@ -25,16 +27,16 @@ public extension AlertManager {
         animated: Bool = true, completion: (() -> Void)? = nil
     ) {
         let alert = createAlert(title: title, message: message, style: style, actions: actions)
-
         display(alert: alert, animated: animated, completion: completion)
     }
 
     func display(
         error: Error, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
-        animated: Bool = true, completion: (() -> Void)? = nil)
-    {
-        displayAlert(message: error.localizedDescription, style: style, actions: actions, animated: animated, completion: completion)
+        animated: Bool = true, completion: (() -> Void)? = nil
+    ) {
+        let alert = createAlert(message: error.localizedDescription, style: style, actions: actions)
+        display(alert: alert, animated: animated, completion: completion)
     }
 
     func display(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
