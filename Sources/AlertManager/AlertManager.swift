@@ -1,6 +1,7 @@
 import SwiftUI
 
 //TODO: Add navigation (if possible)
+//TODO: Add Discussion in docs for functions
 public class AlertManager {
     public static let shared = AlertManager()
 
