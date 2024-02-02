@@ -1,7 +1,8 @@
 import SwiftUI
 
 //TODO: Add navigation (if possible)
-//TODO: Add Discussion in docs for functions
+//TODO: Add Discussions in docs
+//TODO: Add Summery of class and environment object in docs
 public class AlertManager {
     public static let shared = AlertManager()
 
@@ -36,7 +37,7 @@ public class AlertManager {
 }
 
 extension EnvironmentValues {
-    public var alertManager: AlertManager{
+    public var alertManager: AlertManager {
         get {
             AlertManager.shared
         }
