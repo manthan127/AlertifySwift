@@ -23,8 +23,8 @@ public extension AlertManager {
 
     /// Display alert on the screen.
     /// - Parameters:
-    ///     - title:The title of the alert. Use this string to get the user’s attention and communicate the reason for the alert.
-    ///     - message:Descriptive text that provides additional details about the reason for the alert.
+    ///     - title: The title of the alert. Use this string to get the user’s attention and communicate the reason for the alert.
+    ///     - message: Descriptive text that provides additional details about the reason for the alert.
     ///     - style: The style to use when presenting the alert controller. Use this parameter to configure the alert controller as an action sheet or as a modal alert. (alert is default style)
     ///     - actions: for the buttons in popup.
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
@@ -40,8 +40,8 @@ public extension AlertManager {
 
     /// Display alert on the screen.
     /// - Parameters:
-    ///     - title:The title of the alert. Use this string to get the user’s attention and communicate the reason for the alert.
-    ///     - error:Descriptive text that provides additional details about the reason for the alert.
+    ///     - title: The title of the alert. Use this string to get the user’s attention and communicate the reason for the alert.
+    ///     - error: Descriptive text that provides additional details about the reason for the alert.
     ///     - style: The style to use when presenting the alert controller. Use this parameter to configure the alert controller as an action sheet or as a modal alert. (alert is default style)
     ///     - actions: for the buttons in popup.
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
@@ -65,7 +65,13 @@ public extension AlertManager {
 }
 
 public extension UIAlertAction {
-    convenience init (title: String?, style: Style = .default, action: (() -> Void)? = nil) {
+    /// Create and return an action with the specified title and behavior.
+    /// - Parameters:
+    ///     - title: The text to use for the button title. The value you specify should be localized for the user’s current language.
+    ///     - style: Additional styling information to apply to the button. Use the style information to convey the type of action that is performed by the button.
+    ///     - action: A block to execute when the user selects the action.
+    /// - Returns: A new alert action object.
+    convenience init (title: String, style: Style = .default, action: (() -> Void)? = nil) {
         self.init(title: title, style: style) { _ in
             action?()
         }

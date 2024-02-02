@@ -2,7 +2,8 @@ import SwiftUI
 
 //TODO: Add navigation (if possible)
 //TODO: Add Discussions in docs
-//TODO: Add Summery of class and environment object in docs
+//TODO: Add Summery and Discussions of class and environment object in docs
+//Names: QuickSheets, iOSAlertSheets, AlertSheets , AlertifySwift, Alertify
 public class AlertManager {
     public static let shared = AlertManager()
 
