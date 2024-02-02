@@ -2,6 +2,7 @@ import UIKit
 
 //MARK: Process view
 public extension AlertManager {
+    /// Present process view on the screen.
     func showProcessView() {
         guard let view = rootViewController?.view else {return}
         view.addSubview(processView)
@@ -13,6 +14,7 @@ public extension AlertManager {
         ])
     }
 
+    /// Remove process view from the screen.
     func removeProcessView() {
         activityView.stopAnimating()
         processView.removeFromSuperview()
