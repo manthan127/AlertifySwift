@@ -36,3 +36,8 @@ AlertManager.shared.present {
 //you can also give your ViewControllers to present on sheets
 AlertManager.shared.present(viewController: vc)
 ```
+
+- To dismiss sheet or alert view 
+```
+AlertManager.shared.dismiss()
+```
