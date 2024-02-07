@@ -1,7 +1,6 @@
 import UIKit
 
-//MARK: Process view
-public extension AlertManager {
+public extension Alertify {
     /// Present process view on the screen.
     func showProcessView() {
         guard let view = rootViewController?.view else {return}

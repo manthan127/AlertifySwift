@@ -3,9 +3,10 @@ import SwiftUI
 //TODO: Add navigation (if possible)
 //TODO: Add Discussions in docs
 //TODO: Add Summery and Discussions of class and environment object in docs
-//Names: QuickSheets, iOSAlertSheets, AlertSheets , AlertifySwift, Alertify
-public class AlertManager {
-    public static let shared = AlertManager()
+/// An object to show popups on the screens
+public class Alertify {
+    /// Returns the shared Alertify object.
+    public static let shared = Alertify()
 
     var rootViewController: UIViewController? {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -19,6 +20,7 @@ public class AlertManager {
     let processView = UIView()
     let activityView = UIActivityIndicatorView()
 
+    /// Creates a Alertify object
     public init(){
         processView.backgroundColor = .white
         processView.layer.cornerRadius = 10
@@ -38,9 +40,10 @@ public class AlertManager {
 }
 
 extension EnvironmentValues {
-    public var alertManager: AlertManager {
+    /// Returns the shared Alertify object.
+    public var alertify: Alertify {
         get {
-            AlertManager.shared
+            Alertify.shared
         }
     }
 }

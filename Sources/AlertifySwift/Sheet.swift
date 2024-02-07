@@ -1,7 +1,6 @@
 import SwiftUI
 
-// MARK: Sheets
-public extension AlertManager {
+public extension Alertify {
     /// Present sheet on the screen.
     /// - Parameters:
     ///     - view: A SwiftUIView to display on sheet.
