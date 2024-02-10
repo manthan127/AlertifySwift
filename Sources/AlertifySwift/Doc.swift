@@ -1,14 +1,16 @@
-//
-//  File.swift
-//  
-//
-//  Created by Home on 10/02/24.
-//
-
 import SwiftUI
 
+//TODO: Add navigation (if possible)
+//TODO: Add Discussions in docs
+//TODO: Add Summery and Discussions of class and environment object in docs
+//TODO: Add to class Alertify UINavigationControllerDelegate (might be able to get latest UIViewController on navigation)
+//      (need to test if this will be faster than current methode of using rootViewController other wise not worth it)
+//TODO: Add capability to use package in watchOS and macOS
+//TODO: update README file
+//TODO: create demo for the package
+
 protocol Doc {
-    //Mark: Alert
+    // MARK: Alert
     /// Display alert on the screen.
     /// - Parameters:
     ///     - title: The title of the alert. Use this string to get the user’s attention and communicate the reason for the alert.
@@ -22,7 +24,6 @@ protocol Doc {
         actions: [UIAlertAction],
         animated: Bool, completion: (() -> Void)?
     )
-    
     
     /// Display alert on the screen.
     /// - Parameters:
@@ -45,7 +46,7 @@ protocol Doc {
     ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func display(alert: UIAlertController, animated: Bool, completion: (() -> Void)?)
 
-    //Mark: Sheet
+    // MARK: Sheet
     /// Present sheet on the screen.
     /// - Parameters:
     ///     - view: A SwiftUIView to display on sheet.
@@ -85,5 +86,4 @@ protocol Doc {
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
     ///     - completion: The block to execute after the view or view controller is dismissed. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func dismiss(animated: Bool, completion: (() -> Void)?)
-
 }

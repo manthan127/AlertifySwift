@@ -1,14 +1,5 @@
 import SwiftUI
 
-//TODO: Add navigation (if possible)
-//TODO: Add Discussions in docs
-//TODO: Add Summery and Discussions of class and environment object in docs
-//TODO: Add to class Alertify UINavigationControllerDelegate (might be able to get latest UIViewController on navigation)
-//          (need to test if this will be faster than current methode of using rootViewController)
-//TODO: Add capability to use package in watchOS and macOS
-//TODO: update README file
-//TODO: create demo for the package
-
 /// An object to display popups on the screens
 public final class Alertify: Doc {
     /// Returns the shared Alertify object.
@@ -26,7 +17,6 @@ public final class Alertify: Doc {
     let processView = UIView()
     let activityView = UIActivityIndicatorView()
 
-    /// Creates a Alertify object
     private init(){
         processView.backgroundColor = .white
         processView.layer.cornerRadius = 10
