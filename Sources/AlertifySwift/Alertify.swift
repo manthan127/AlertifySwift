@@ -6,7 +6,8 @@ import SwiftUI
 //TODO: Add to class Alertify UINavigationControllerDelegate (might be able to get latest UIViewController on navigation)
 //          (need to test if this will be faster than current methode of using rootViewController)
 //TODO: Add capability to use package in watchOS and macOS
-/// An object to show popups on the screens
+//TODO: update README file
+/// An object to display popups on the screens
 public class Alertify {
     /// Returns the shared Alertify object.
     public static let shared = Alertify()

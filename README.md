@@ -1,8 +1,8 @@
 # AlertifySwift
 
-AlertifySwift can be used to show popups in your iOS app from anywhere it will find the current screen the user is using and show a popup on that screen
+AlertifySwift Provides framework-independent functions to show system popups easily in your App.
 
-AlertifySwift Provides framework-independent (UIKit or SwiftUI) functions to show system popups easily in your iOS App
+AlertifySwift can be used to show popups in your iOS app from anywhere it will find the current screen the user is using and show a popup on that screen
 - to display an alert popup
 ```
 do {
