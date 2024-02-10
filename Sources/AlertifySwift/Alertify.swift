@@ -7,11 +7,13 @@ import SwiftUI
 //          (need to test if this will be faster than current methode of using rootViewController)
 //TODO: Add capability to use package in watchOS and macOS
 //TODO: update README file
+//TODO: create demo for the package
+
 /// An object to display popups on the screens
-public class Alertify {
+public final class Alertify: Doc {
     /// Returns the shared Alertify object.
     public static let shared = Alertify()
-#if os(iOS) || os(tvOS)
+
     var rootViewController: UIViewController? {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         var rootVC = windowScene?.windows.first?.rootViewController
@@ -25,7 +27,7 @@ public class Alertify {
     let activityView = UIActivityIndicatorView()
 
     /// Creates a Alertify object
-    public init(){
+    private init(){
         processView.backgroundColor = .white
         processView.layer.cornerRadius = 10
         processView.layer.shadowRadius = 10
@@ -41,11 +43,6 @@ public class Alertify {
             activityView.centerYAnchor.constraint(equalTo: processView.centerYAnchor)
         ])
     }
-#elseif os(watchOS)
-
-#elseif os(macOS)
-    
-#endif
 }
 
 extension EnvironmentValues {

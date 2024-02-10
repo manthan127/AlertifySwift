@@ -1,5 +1,3 @@
-//TODO: Add capability to use in watchOS and macOS
-#if os(iOS) || os(tvOS)
 import UIKit
 
 public extension Alertify {
@@ -21,4 +19,3 @@ public extension Alertify {
         processView.removeFromSuperview()
     }
 }
-#endif

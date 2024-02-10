@@ -20,14 +20,6 @@ public extension Alertify {
         return alert
     }
 
-    /// Display alert on the screen.
-    /// - Parameters:
-    ///     - title: The title of the alert. Use this string to get the user’s attention and communicate the reason for the alert.
-    ///     - message: Descriptive text that provides additional details about the reason for the alert.
-    ///     - style: The style to use when presenting the alert controller. Use this parameter to configure the alert controller as an action sheet or as a modal alert. (default style is .alert)
-    ///     - actions: for the buttons in popup.
-    ///     - animated: Pass true to animate the presentation; otherwise, pass false.
-    ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func displayAlert(
         title: String? = nil, message: String, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
@@ -37,14 +29,6 @@ public extension Alertify {
         display(alert: alert, animated: animated, completion: completion)
     }
 
-    /// Display alert on the screen.
-    /// - Parameters:
-    ///     - title: The title of the alert. Use this string to get the user’s attention and communicate the reason for the alert.
-    ///     - error: Descriptive text that provides additional details about the reason for the alert.
-    ///     - style: The style to use when presenting the alert controller. Use this parameter to configure the alert controller as an action sheet or as a modal alert. (default style is .alert)
-    ///     - actions: for the buttons in popup.
-    ///     - animated: Pass true to animate the presentation; otherwise, pass false.
-    ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func display(
         title: String? = nil, error: Error, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
@@ -53,17 +37,11 @@ public extension Alertify {
         displayAlert(title: title, message: error.localizedDescription, style: style, actions: actions, animated: animated, completion: completion)
     }
 
-    /// Display alert on the screen.
-    /// - Parameters:
-    ///     - alert: An object that can displays an alert message to the user.
-    ///     - animated: Pass true to animate the presentation; otherwise, pass false.
-    ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func display(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
         rootViewController?.present(alert, animated: animated, completion: completion)
     }
 }
 
-#if os(iOS) || os(tvOS)
 public extension UIAlertAction {
     /// Create and return an action with the specified title and behavior.
     /// - Parameters:
@@ -77,4 +55,3 @@ public extension UIAlertAction {
         }
     }
 }
-#endif
