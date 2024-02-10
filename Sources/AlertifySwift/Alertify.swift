@@ -3,6 +3,9 @@ import SwiftUI
 //TODO: Add navigation (if possible)
 //TODO: Add Discussions in docs
 //TODO: Add Summery and Discussions of class and environment object in docs
+//TODO: Add to class Alertify UINavigationControllerDelegate (might be able to get latest UIViewController on navigation)
+//          (need to test if this will be faster than current methode of using rootViewController)
+//TODO: Add capability to use package in watchOS and macOS
 /// An object to show popups on the screens
 public class Alertify {
     /// Returns the shared Alertify object.

@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "AlertifySwift",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS(.v13), .tvOS(.v13)],
     products: [
         .library(name: "AlertifySwift", targets: ["AlertifySwift"]),
     ],
