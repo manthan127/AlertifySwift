@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(macOS 10.15, watchOS 6.0, *)
 public extension Alertify {
     /// Present sheet on the screen.
     /// - Parameters:

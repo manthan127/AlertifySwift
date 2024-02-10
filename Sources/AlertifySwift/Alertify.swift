@@ -10,7 +10,7 @@ import SwiftUI
 public class Alertify {
     /// Returns the shared Alertify object.
     public static let shared = Alertify()
-
+#if os(iOS) || os(tvOS)
     var rootViewController: UIViewController? {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         var rootVC = windowScene?.windows.first?.rootViewController
@@ -40,8 +40,14 @@ public class Alertify {
             activityView.centerYAnchor.constraint(equalTo: processView.centerYAnchor)
         ])
     }
+#elseif os(watchOS)
+
+#elseif os(macOS)
+    
+#endif
 }
 
+@available(macOS 10.15, watchOS 6.0, *)
 extension EnvironmentValues {
     /// Returns the shared Alertify object.
     public var alertify: Alertify {

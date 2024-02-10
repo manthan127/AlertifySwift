@@ -63,6 +63,7 @@ public extension Alertify {
     }
 }
 
+#if os(iOS) || os(tvOS)
 public extension UIAlertAction {
     /// Create and return an action with the specified title and behavior.
     /// - Parameters:
@@ -76,3 +77,4 @@ public extension UIAlertAction {
         }
     }
 }
+#endif
