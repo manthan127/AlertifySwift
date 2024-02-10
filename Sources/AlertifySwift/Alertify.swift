@@ -48,7 +48,6 @@ public class Alertify {
 #endif
 }
 
-@available(macOS 10.15, watchOS 6.0, *)
 extension EnvironmentValues {
     /// Returns the shared Alertify object.
     public var alertify: Alertify {
