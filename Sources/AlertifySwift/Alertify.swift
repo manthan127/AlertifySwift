@@ -14,7 +14,7 @@ public final class Alertify: Doc {
     
 #if os(iOS) || os(tvOS)
     
-    var rootViewController: UIViewController? {
+    var rootVC: UIViewController? {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         var rootVC = windowScene?.windows.first?.rootViewController
         while let vc = rootVC?.presentedViewController {
@@ -44,7 +44,8 @@ public final class Alertify: Doc {
     }
     
 #elseif os(watchOS)
-    var InterfaceController: WKInterfaceController {
+    //MARK: might need to update
+    var rootInterfaceController: WKInterfaceController? {
         WKExtension.shared().rootInterfaceController
     }
 #endif

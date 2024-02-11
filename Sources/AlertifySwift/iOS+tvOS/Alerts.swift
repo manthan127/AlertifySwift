@@ -1,3 +1,4 @@
+#if os(iOS) || os(tvOS)
 import SwiftUI
 
 public extension Alertify {
@@ -38,30 +39,21 @@ public extension Alertify {
     }
 
     func display(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
-        rootViewController?.present(alert, animated: animated, completion: completion)
+        rootVC?.present(alert, animated: animated, completion: completion)
     }
-    
 }
 
 public extension UIAlertAction {
     /// Create and return an action with the specified title and behavior.
     /// - Parameters:
-    ///     - title: The text to use for the button title. The value you specify should be localized for the user’s current language.
+    ///     - title: The text to use for the button title. The value you specify should be localized for the user’s current language.  This parameter must not be nil, except in a tvOS app where a nil title may be used with UIAlertAction.Style.cancel.
     ///     - style: Additional styling information to apply to the button. Use the style information to convey the type of action that is performed by the button.
     ///     - action: A block to execute when the user selects the action.
     /// - Returns: A new alert action object.
-    convenience init (title: String, style: Style = .default, action: (() -> Void)? = nil) {
+    convenience init (title: String?, style: Style = .default, action: (() -> Void)? = nil) {
         self.init(title: title, style: style) { _ in
             action?()
         }
     }
 }
-
-//    MARK: watchKit alert
-//    func displayAlert(
-//        title: String?, message: String?, style: WKAlertControllerStyle = .alert,
-//        actions: [WKAlertAction]
-//    ) {
-////        let action = WKAlertAction(title: "OK", style: .default) {}
-//        rootViewController?.presentAlert(withTitle: title, message: message, preferredStyle: style, actions: actions)
-//    }
+#endif

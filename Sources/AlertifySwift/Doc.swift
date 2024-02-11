@@ -4,8 +4,10 @@ import SwiftUI
 //TODO: Add Discussions of class and environment object in docs
 //TODO: update README file
 
-//TODO: Add capability to use package in watchOS and macOS
-//TODO: Add docs for use in watchOS and macOS
+//TODO: make better processView
+
+//TODO: Add capability to use package in watchOS, macOS, and macOS(catalyst)
+//TODO: Add docs for use in watchOS, macOS, and macOS(catalyst)
 
 //TODO: Add navigation (if possible)
 //TODO: Add to class Alertify UINavigationControllerDelegate (might be able to get latest UIViewController on navigation)
@@ -14,6 +16,7 @@ import SwiftUI
 //TODO: create demo for the package
 
 protocol Doc {
+#if os(iOS) || os(tvOS)
     // MARK: Alert
     /// Display alert on the screen.
     /// - Parameters:
@@ -90,4 +93,5 @@ protocol Doc {
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
     ///     - completion: The block to execute after the view or view controller is dismissed. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func dismiss(animated: Bool, completion: (() -> Void)?)
+#endif
 }

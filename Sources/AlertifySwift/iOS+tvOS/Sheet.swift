@@ -1,3 +1,4 @@
+#if os(iOS) || os(tvOS)
 import SwiftUI
 
 public extension Alertify {
@@ -8,7 +9,7 @@ public extension Alertify {
         let vc = UIHostingController(rootView: view)
         vc.isModalInPresentation = !dismissOnSwipe
 
-        rootViewController?.present(vc, animated: animated, completion: completion)
+        rootVC?.present(vc, animated: animated, completion: completion)
     }
 
     func present<content: View>(
@@ -19,7 +20,7 @@ public extension Alertify {
         let vc = UIHostingController(rootView: view())
         vc.isModalInPresentation = !dismissOnSwipe
 
-        rootViewController?.present(vc, animated: animated, completion: completion)
+        rootVC?.present(vc, animated: animated, completion: completion)
     }
 
     func present(
@@ -27,10 +28,11 @@ public extension Alertify {
         animated: Bool = true, completion: (() -> Void)? = nil
     ) {
         viewController.isModalInPresentation = !dismissOnSwipe
-        rootViewController?.present(viewController, animated: animated, completion: completion)
+        rootVC?.present(viewController, animated: animated, completion: completion)
     }
 
     func dismiss(animated: Bool = true, completion: (() -> Void)? = nil) {
-        rootViewController?.dismiss(animated: animated, completion: completion)
+        rootVC?.dismiss(animated: animated, completion: completion)
     }
 }
+#endif
