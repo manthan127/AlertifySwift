@@ -1,10 +1,19 @@
 import SwiftUI
 
+extension EnvironmentValues {
+    /// Returns the shared Alertify object.
+    public var alertify: Alertify {
+        get { Alertify.shared }
+    }
+}
+
 /// An object to display popups on the screens
 public final class Alertify: Doc {
     /// Returns the shared Alertify object.
     public static let shared = Alertify()
-
+    
+#if os(iOS) || os(tvOS)
+    
     var rootViewController: UIViewController? {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         var rootVC = windowScene?.windows.first?.rootViewController
@@ -33,13 +42,10 @@ public final class Alertify: Doc {
             activityView.centerYAnchor.constraint(equalTo: processView.centerYAnchor)
         ])
     }
-}
-
-extension EnvironmentValues {
-    /// Returns the shared Alertify object.
-    public var alertify: Alertify {
-        get {
-            Alertify.shared
-        }
+    
+#elseif os(watchOS)
+    var InterfaceController: WKInterfaceController {
+        WKExtension.shared().rootInterfaceController
     }
+#endif
 }

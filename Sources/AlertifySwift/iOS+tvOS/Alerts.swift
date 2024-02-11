@@ -40,6 +40,7 @@ public extension Alertify {
     func display(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
         rootViewController?.present(alert, animated: animated, completion: completion)
     }
+    
 }
 
 public extension UIAlertAction {
@@ -55,3 +56,12 @@ public extension UIAlertAction {
         }
     }
 }
+
+//    MARK: watchKit alert
+//    func displayAlert(
+//        title: String?, message: String?, style: WKAlertControllerStyle = .alert,
+//        actions: [WKAlertAction]
+//    ) {
+////        let action = WKAlertAction(title: "OK", style: .default) {}
+//        rootViewController?.presentAlert(withTitle: title, message: message, preferredStyle: style, actions: actions)
+//    }

@@ -1,12 +1,16 @@
 import SwiftUI
 
-//TODO: Add navigation (if possible)
 //TODO: Add Discussions in docs
-//TODO: Add Summery and Discussions of class and environment object in docs
+//TODO: Add Discussions of class and environment object in docs
+//TODO: update README file
+
+//TODO: Add capability to use package in watchOS and macOS
+//TODO: Add docs for use in watchOS and macOS
+
+//TODO: Add navigation (if possible)
 //TODO: Add to class Alertify UINavigationControllerDelegate (might be able to get latest UIViewController on navigation)
 //      (need to test if this will be faster than current methode of using rootViewController other wise not worth it)
-//TODO: Add capability to use package in watchOS and macOS
-//TODO: update README file
+
 //TODO: create demo for the package
 
 protocol Doc {
