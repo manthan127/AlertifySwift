@@ -1,6 +1,6 @@
 #if os(iOS) || os(tvOS)
 import SwiftUI
-
+//TOOD: behavior dismissOnSwipe in tvOS??
 public extension Alertify {
     func present<content: View>(
         view: content, dismissOnSwipe: Bool = true,
