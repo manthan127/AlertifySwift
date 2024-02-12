@@ -30,6 +30,7 @@ public extension Alertify {
         rootVC?.present(viewController, animated: animated, completion: completion)
     }
 
+    /// dismiss sheet or alert on the screen.
     func dismiss(animated: Bool = true, completion: (() -> Void)? = nil) {
         rootVC?.dismiss(animated: animated, completion: completion)
     }
