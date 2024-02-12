@@ -4,9 +4,9 @@
 
 AlertifySwift Provides framework-independent functions to show system popups easily in your App.
 
-AlertifySwift can be used to show popups in your iOS app from anywhere it will find the current screen the user is using and show a popup on that screen
+AlertifySwift can be used to show popups in your iOS and tvOS app from anywhere it will find the current screen the user is using and show a popup on that screen
 
-### Display an alert popup
+### Display an alert
 ```
 do {
     result = try await callApi()
@@ -41,7 +41,7 @@ animated: Pass true to animate the presentation; otherwise, pass false.
 completion: The block to execute after the presentation finishes. You may specify nil for this parameter.
 ```
 
-### Present sheets on screen
+### Present a sheet
 ```
 Alertify.shared.present(view: SwiftUIView())
 // OR
