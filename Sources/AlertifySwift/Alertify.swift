@@ -18,7 +18,7 @@ public final class Alertify: Doc {
     let activityView = UIActivityIndicatorView()
 
     private init(){
-        processView.backgroundColor = .white
+        processView.backgroundColor = .label
         processView.layer.cornerRadius = 10
         processView.layer.shadowRadius = 10
         processView.translatesAutoresizingMaskIntoConstraints = false

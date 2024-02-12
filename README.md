@@ -64,7 +64,7 @@ animated: Pass true to animate the presentation; otherwise, pass false.
 completion: The block to execute after the presentation finishes. You may specify nil for this parameter.
 ```
 
-### Dismiss sheet or alert view 
+### Dismiss sheet or alert 
 ```
 Alertify.shared.dismiss()
 //This function can dissmis both alerts and sheets.
