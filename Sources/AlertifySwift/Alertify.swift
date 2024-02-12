@@ -5,7 +5,7 @@ public final class Alertify: Doc {
     /// Returns the shared Alertify object.
     public static let shared = Alertify()
 
-    var rootViewController: UIViewController? {
+    var rootVC: UIViewController? {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         var rootVC = windowScene?.windows.first?.rootViewController
         while let vc = rootVC?.presentedViewController {

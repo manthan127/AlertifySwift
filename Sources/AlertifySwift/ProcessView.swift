@@ -3,7 +3,7 @@ import UIKit
 public extension Alertify {
     /// Present process view on the screen.
     func showProcessView() {
-        guard let view = rootViewController?.view else {return}
+        guard let view = rootVC?.view else {return}
         view.addSubview(processView)
         activityView.startAnimating()
         

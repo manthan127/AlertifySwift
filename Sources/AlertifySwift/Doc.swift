@@ -11,6 +11,7 @@ import SwiftUI
 
 protocol Doc {
     // MARK: Alert
+
     /// Display alert on the screen.
     /// - Parameters:
     ///     - title: The title of the alert. Use this string to get the user’s attention and communicate the reason for the alert.
@@ -19,7 +20,7 @@ protocol Doc {
     ///     - actions: for the buttons in popup.
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
     ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
-    func displayAlert(
+    func alert(
         title: String?, message: String, style: UIAlertController.Style,
         actions: [UIAlertAction],
         animated: Bool, completion: (() -> Void)?
@@ -33,7 +34,7 @@ protocol Doc {
     ///     - actions: for the buttons in popup.
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
     ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
-    func display(
+    func alert(
         title: String?, error: Error, style: UIAlertController.Style,
         actions: [UIAlertAction],
         animated: Bool, completion: (() -> Void)?
@@ -46,11 +47,13 @@ protocol Doc {
     ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func display(alert: UIAlertController, animated: Bool, completion: (() -> Void)?)
 
+
     // MARK: Sheet
+    
     /// Present sheet on the screen.
     /// - Parameters:
     ///     - view: A SwiftUIView to display on sheet.
-    ///     - dismissOnSwipe: Pass true to dismiss on swipe-down the presentation; otherwise, pass false.
+    ///     - dismissOnSwipe: Pass true to dismiss the presentation on swipe-down; otherwise, pass false.
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
     ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func present<content: View>(
@@ -60,7 +63,7 @@ protocol Doc {
     
     /// Present sheet on the screen.
     /// - Parameters:
-    ///     - dismissOnSwipe: Pass true to dismiss on swipe-down the presentation; otherwise, pass false.
+    ///     - dismissOnSwipe: Pass true to dismiss the presentation on swipe-down; otherwise, pass false.
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
     ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     ///     - view: A SwiftUIView builder to display view on sheet
@@ -73,7 +76,7 @@ protocol Doc {
     /// Present sheet on the screen.
     /// - Parameters:
     ///     - viewController: An UIViewController to display on sheet
-    ///     - dismissOnSwipe: Pass true to dismiss on swipe-down the presentation; otherwise, pass false.
+    ///     - dismissOnSwipe: Pass true to dismiss the presentation on swipe-down; otherwise, pass false.
     ///     - animated: Pass true to animate the presentation; otherwise, pass false.
     ///     - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func present(

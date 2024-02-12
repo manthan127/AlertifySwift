@@ -20,7 +20,7 @@ public extension Alertify {
         return alert
     }
 
-    func displayAlert(
+    func alert(
         title: String? = nil, message: String, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
         animated: Bool = true, completion: (() -> Void)? = nil
@@ -29,16 +29,16 @@ public extension Alertify {
         display(alert: alert, animated: animated, completion: completion)
     }
 
-    func display(
+    func alert(
         title: String? = nil, error: Error, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
         animated: Bool = true, completion: (() -> Void)? = nil
     ) {
-        displayAlert(title: title, message: error.localizedDescription, style: style, actions: actions, animated: animated, completion: completion)
+        alert(title: title, message: error.localizedDescription, style: style, actions: actions, animated: animated, completion: completion)
     }
 
     func display(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
-        rootViewController?.present(alert, animated: animated, completion: completion)
+        rootVC?.present(alert, animated: animated, completion: completion)
     }
 }
 
