@@ -2,8 +2,13 @@
 [![Swift](https://img.shields.io/badge/Swift-5.5-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.7_5.8_5.9-Orange?style=flat-square)
 [![Platforms](https://img.shields.io/badge/Platforms-iOS_tvOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-macOS_iOS_tvOS_watchOS_vision_OS_Linux_Windows_Android-Green?style=flat-square)
 
+- [Features](#features)
+- [Requirements](#requirements)
+- [Demo](https://github.com/manthan127/AlertifyDemo)
+- [License](#license)
 
 
+## Features
 AlertifySwift Provides framework-independent functions to show system popups easily in your App.
 
 AlertifySwift can be used to show popups in your iOS and tvOS app from anywhere it will find the current screen the user is using and show a popup on that screen
@@ -28,13 +33,13 @@ let alert = UIAlertController(title: "Title", message: "Message", preferredStyle
 Alertify.shared.display(alert: alert)
 ```
 All the methods described above also has extra parameters with default values provided
-
 - style
     - This variable decides if popup will be alert or action sheet
 - animated
     - If value is false then sheet will not be presented with animation. otherwise it will be presented with animation
 - onDismiss
     - it's an clouser that Will be called when alert is dismissed
+
 ## Present a sheet
 ```
 Alertify.shared.present(view: SwiftUIView())
@@ -54,8 +59,20 @@ All this variants present method also has some parameters with default value
     - If value is false then sheet will not be presented with animation. otherwise it will be presented with animation
 - onDismiss
     - it's an clouser that Will be called when alert is dismissed
+
 ## Dismiss sheet or alert 
 ```
 Alertify.shared.dismiss()
 //This function can dissmis both alerts and sheets.
 ```
+
+## Requirements
+| Platform | Minimum Version |
+| -------- | --------------- |
+| iOS      | 13.0            |
+| tvOS     | 13.0            | 
+
+
+## License
+
+AlertifySwift is released under the The Unlicense. [See LICENSE](https://github.com/manthan127/AlertifySwift/blob/main/LICENSE) for details.
