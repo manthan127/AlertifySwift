@@ -9,8 +9,7 @@ public extension Alertify {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
 
         if actions.isEmpty {
-            let ok = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(ok)
+            alert.addAction(UIAlertAction(title: "OK"))
         } else {
             actions.forEach(alert.addAction(_:))
         }
@@ -63,5 +62,16 @@ public extension Alertify {
             alert.addAction(ok)
         }
         rootVC?.present(alert, animated: animated, completion: onDismiss)
+    }
+}
+
+public extension UIAlertAction {
+    /// Create and return an action with the specified title and behavior.
+    /// - Parameters:
+    ///   - title: The text to use for the button title. The value you specify should be localized for the user’s current language.
+    ///   - action: A block to execute when the user selects the action.
+    /// - Returns: A new alert action object. with default style
+    convenience init (title: String?, handler: ((UIAlertAction) -> Void)? = nil) {
+        self.init(title: title, style: .default, handler: handler)
     }
 }
