@@ -1,6 +1,7 @@
 import SwiftUI
 
 /// An object to display popups on the screens
+@MainActor
 public final class Alertify {
     /// Returns the shared Alertify object.
     public static let shared = Alertify()
@@ -18,7 +19,7 @@ public final class Alertify {
     let activityView = UIActivityIndicatorView()
 
     private init(){
-        processView.backgroundColor = .label
+        processView.backgroundColor = .systemBackground
         processView.layer.cornerRadius = 10
         processView.layer.shadowRadius = 10
         processView.translatesAutoresizingMaskIntoConstraints = false
