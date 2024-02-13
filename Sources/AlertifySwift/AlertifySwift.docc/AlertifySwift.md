@@ -8,6 +8,8 @@ AlertifySwift can be used to show popups in your iOS or tvOS app from anywhere, 
 
 ## Topics
 
+### Geting started
+
 ### Alerts
 - ``Alertify/alert(title:error:style:actions:animated:completion:)`` 
 - ``Alertify/alert(title:message:style:actions:animated:completion:)``
@@ -20,3 +22,7 @@ AlertifySwift can be used to show popups in your iOS or tvOS app from anywhere, 
 
 ### Dismiss 
 - ``Alertify/dismiss(animated:completion:)``
+
+### Process View 
+- ``Alertify/showProcessView()``
+- ``Alertify/removeProcessView()``

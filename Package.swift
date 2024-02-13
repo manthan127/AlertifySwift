@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "AlertifySwift",
     platforms: [.iOS(.v13), .tvOS(.v13)],
-//    , .macOS(.v10_15), .watchOS(.v6)
+//    , .macOS(.v10_15), .watchOS(.v6), .macCatalyst(.v13)
     products: [
         .library(name: "AlertifySwift", targets: ["AlertifySwift"]),
     ],

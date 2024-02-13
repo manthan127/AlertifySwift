@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// An object to display popups on the screens
-public final class Alertify: Doc {
+public final class Alertify {
     /// Returns the shared Alertify object.
     public static let shared = Alertify()
 
