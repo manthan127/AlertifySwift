@@ -66,6 +66,14 @@ Alertify.shared.dismiss()
 //This function can dissmis both alerts and sheets.
 ```
 
+## Process View
+AlertifySwift can also display process view on the screens
+```
+Alertify.shared.showProcessView()
+//To remove process view
+Alertify.shared.removeProcessView()
+```
+
 ## Requirements
 | Platform | Minimum Version |
 | -------- | --------------- |
