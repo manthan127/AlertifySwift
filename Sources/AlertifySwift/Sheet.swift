@@ -26,7 +26,7 @@ public extension Alertify {
     func present<content: View>(
         dismissOnSwipe: Bool = true,
         animated: Bool = true, onDismiss: (() -> Void)? = nil,
-        @ViewBuilder view: () -> content
+        @ViewBuilder view: @escaping () -> content
     ) { DispatchQueue.main.async { [self] in
         let vc = UIHostingController(rootView: view())
         vc.isModalInPresentation = !dismissOnSwipe
