@@ -2,46 +2,40 @@
 [![Swift](https://img.shields.io/badge/Swift-5.5-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.7_5.8_5.9-Orange?style=flat-square)
 [![Platforms](https://img.shields.io/badge/Platforms-iOS_tvOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-macOS_iOS_tvOS_watchOS_vision_OS_Linux_Windows_Android-Green?style=flat-square)
 
+
+
 AlertifySwift Provides framework-independent functions to show system popups easily in your App.
 
 AlertifySwift can be used to show popups in your iOS and tvOS app from anywhere it will find the current screen the user is using and show a popup on that screen
 
-### Display an alert
+## Display an alert
 ```
 do {
     result = try await callApi()
 } catch {
-    Alertify.shared.alert(message: "error message you need to display")
+    Alertify.shared.alert(title: "Title", message: "error message you need to display")
     // OR
-    Alertify.shared.alert(error: error)
-    
+    Alertify.shared.alert(title: "Title", error: error)
 }
+```
+AlertifySwift also provides way to present action sheets in your app
+```
+Alertify.shared.alert(title: "ActionSheet", style: .actionSheet)
 ```
 you can also give your UIAlertController to present
 ```
-let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+let alert = UIAlertController(title: "Title", message: "Message", preferredStyle: .actionSheet)
 Alertify.shared.display(alert: alert)
 ```
-These methods also takes extra parameters which are given default values
-```
-title: String? = nil
-style: UIAlertController.Style = .alert
-actions: [UIAlertAction] = []
+All the methods described above also has extra parameters with default values provided
 
-title: The title of the alert
-style: The style to use when presenting the alert controller
-actions: for the buttons in popup
-```
-
-```
-animated: Bool = true
-onDismiss: (() -> Void)? = nil
-
-animated: Pass true to animate the presentation; otherwise, pass false.
-onDismiss: The block to execute after the presentation finishes. You may specify nil for this parameter.
-```
-
-### Present a sheet
+- style
+    - This variable decides if popup will be alert or action sheet
+- animated
+    - If value is false then sheet will not be presented with animation. otherwise it will be presented with animation
+- onDismiss
+    - it's an clouser that Will be called when alert is dismissed
+## Present a sheet
 ```
 Alertify.shared.present(view: SwiftUIView())
 // OR
@@ -53,19 +47,14 @@ You can also give your ViewControllers to present on sheets
 ```
 Alertify.shared.present(viewController: vc)
 ```
-
-all these methods described above also has extra parameters with default values provided
-```
-dismissOnSwipe: Bool = true
-animated: Bool = true
-onDismiss: (() -> Void)? = nil
-
-dismissOnSwipe: Pass true to dismiss the presentation on swipe-down; otherwise, pass false.
-animated: Pass true to animate the presentation; otherwise, pass false.
-onDismiss: The block to execute after the presentation finishes. You may specify nil for this parameter.
-```
-
-### Dismiss sheet or alert 
+All this variants present method also has some parameters with default value
+- dismissOnSwipe
+    - If value is false then sheet can't be dismissed by swipe-down. otherwise sheet will be dismissed by swipe-down
+- animated
+    - If value is false then sheet will not be presented with animation. otherwise it will be presented with animation
+- onDismiss
+    - it's an clouser that Will be called when alert is dismissed
+## Dismiss sheet or alert 
 ```
 Alertify.shared.dismiss()
 //This function can dissmis both alerts and sheets.
