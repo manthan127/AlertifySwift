@@ -35,10 +35,10 @@ actions: for the buttons in popup
 
 ```
 animated: Bool = true
-completion: (() -> Void)? = nil
+onDismiss: (() -> Void)? = nil
 
 animated: Pass true to animate the presentation; otherwise, pass false.
-completion: The block to execute after the presentation finishes. You may specify nil for this parameter.
+onDismiss: The block to execute after the presentation finishes. You may specify nil for this parameter.
 ```
 
 ### Present a sheet
@@ -53,15 +53,16 @@ You can also give your ViewControllers to present on sheets
 ```
 Alertify.shared.present(viewController: vc)
 ```
-all these methods also takes extra parameters which are given default values
+
+all these methods described above also has extra parameters with default values provided
 ```
 dismissOnSwipe: Bool = true
 animated: Bool = true
-completion: (() -> Void)? = nil
+onDismiss: (() -> Void)? = nil
 
 dismissOnSwipe: Pass true to dismiss the presentation on swipe-down; otherwise, pass false.
 animated: Pass true to animate the presentation; otherwise, pass false.
-completion: The block to execute after the presentation finishes. You may specify nil for this parameter.
+onDismiss: The block to execute after the presentation finishes. You may specify nil for this parameter.
 ```
 
 ### Dismiss sheet or alert 

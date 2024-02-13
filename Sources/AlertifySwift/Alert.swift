@@ -2,16 +2,14 @@ import SwiftUI
 
 public extension Alertify {
     private func createAlert(
-        title: String? = nil, message: String, style: UIAlertController.Style = .alert,
-        actions: [UIAlertAction] = []
+        title: String?, message: String?, style: UIAlertController.Style,
+        actions: [UIAlertAction]
     ) -> UIAlertController
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
 
         if actions.isEmpty {
-            let ok = UIAlertAction(title: "OK", style: .default) { _ in
-                self.removeProcessView()
-            }
+            let ok = UIAlertAction(title: "OK", style: .default)
             alert.addAction(ok)
         } else {
             actions.forEach(alert.addAction(_:))
@@ -29,12 +27,12 @@ public extension Alertify {
     ///   - animated: Pass true to animate the presentation; otherwise, pass false.
     ///   - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
     func alert(
-        title: String? = nil, message: String, style: UIAlertController.Style = .alert,
+        title: String? = nil, message: String? = nil, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
-        animated: Bool = true, completion: (() -> Void)? = nil
+        animated: Bool = true, onDismiss: (() -> Void)? = nil
     ) {
         let alert = createAlert(title: title, message: message, style: style, actions: actions)
-        display(alert: alert, animated: animated, completion: completion)
+        display(alert: alert, animated: animated, onDismiss: onDismiss)
     }
 
     /// Display alert on the screen.
@@ -48,9 +46,10 @@ public extension Alertify {
     func alert(
         title: String? = nil, error: Error, style: UIAlertController.Style = .alert,
         actions: [UIAlertAction] = [],
-        animated: Bool = true, completion: (() -> Void)? = nil
+        animated: Bool = true, onDismiss: (() -> Void)? = nil
     ) {
-        alert(title: title, message: error.localizedDescription, style: style, actions: actions, animated: animated, completion: completion)
+        let alert = createAlert(title: title, message: error.localizedDescription, style: style, actions: actions)
+        display(alert: alert, animated: animated, onDismiss: onDismiss)
     }
 
     /// Display alert on the screen.
@@ -58,8 +57,12 @@ public extension Alertify {
     ///   - alert: An object that can displays an alert message to the user.
     ///   - animated: Pass true to animate the presentation; otherwise, pass false.
     ///   - completion: The block to execute after the presentation finishes. This block has no return value and takes no parameters. You may specify nil for this parameter.
-    func display(alert: UIAlertController, animated: Bool = true, completion: (() -> Void)? = nil) {
-        rootVC?.present(alert, animated: animated, completion: completion)
+    func display(alert: UIAlertController, animated: Bool = true, onDismiss: (() -> Void)? = nil) {
+        if alert.actions.isEmpty {
+            let ok = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(ok)
+        }
+        rootVC?.present(alert, animated: animated, completion: onDismiss)
     }
 }
 
