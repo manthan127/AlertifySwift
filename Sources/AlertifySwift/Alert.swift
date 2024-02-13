@@ -9,9 +9,7 @@ public extension Alertify {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
 
         if actions.isEmpty {
-            let ok = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-                self?.removeProcessView()
-            }
+            let ok = UIAlertAction(title: "OK", style: .default)
             alert.addAction(ok)
         } else {
             actions.forEach(alert.addAction(_:))
