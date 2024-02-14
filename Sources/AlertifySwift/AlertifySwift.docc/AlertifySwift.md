@@ -9,6 +9,7 @@ AlertifySwift can be used to show popups in your iOS or tvOS app from anywhere, 
 ## Topics
 
 ### Geting started
+- <doc:GettingStarted>
 
 ### Alerts
 - ``Alertify/alert(title:error:style:actions:animated:onDismiss:)`` 

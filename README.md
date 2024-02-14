@@ -67,10 +67,12 @@ Alertify.shared.dismiss()
 ```
 
 ## Process View
-AlertifySwift can also display process view on the screens
+AlertifySwift can display process view on the screens
 ```
 Alertify.shared.showProcessView()
-//To remove process view
+```
+To remove process view
+```
 Alertify.shared.removeProcessView()
 ```
 
