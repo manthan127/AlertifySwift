@@ -18,7 +18,7 @@ public final class Alertify {
     let activityView = UIActivityIndicatorView()
 
     private init(){
-#if os(ios)
+#if os(iOS)
         processView.backgroundColor = .systemBackground
 #endif
         processView.layer.cornerRadius = 10
