@@ -34,6 +34,18 @@ public final class Alertify {
             activityView.centerXAnchor.constraint(equalTo: processView.centerXAnchor),
             activityView.centerYAnchor.constraint(equalTo: processView.centerYAnchor)
         ])
+
+        let layer = processView.layer
+
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: -1, height: 1)
+        layer.shadowRadius = 1
+
+        layer.shadowPath = UIBezierPath(rect: processView.bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
     }
 }
 

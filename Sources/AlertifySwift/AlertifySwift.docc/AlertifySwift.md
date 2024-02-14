@@ -11,14 +11,14 @@ AlertifySwift can be used to show popups in your iOS or tvOS app from anywhere, 
 ### Geting started
 
 ### Alerts
-- ``Alertify/alert(title:error:style:actions:animated:completion:)`` 
-- ``Alertify/alert(title:message:style:actions:animated:completion:)``
-- ``Alertify/display(alert:animated:completion:)``
+- ``Alertify/alert(title:error:style:actions:animated:onDismiss:)`` 
+- ``Alertify/alert(title:message:style:actions:animated:onDismiss:)``
+- ``Alertify/display(alert:animated:onDismiss:)``
 
 ### Sheets
-- ``Alertify/present(view:dismissOnSwipe:animated:completion:)``
-- ``Alertify/present(dismissOnSwipe:animated:completion:view:)``
-- ``Alertify/present(viewController:dismissOnSwipe:animated:completion:)``
+- ``Alertify/present(view:dismissOnSwipe:animated:onDismiss:)``
+- ``Alertify/present(dismissOnSwipe:animated:onDismiss:view:)``
+- ``Alertify/present(viewController:dismissOnSwipe:animated:onDismiss:)``
 
 ### Dismiss 
 - ``Alertify/dismiss(animated:completion:)``
