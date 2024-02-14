@@ -1,4 +1,3 @@
-#if os(iOS)
 import UIKit
 
 public extension Alertify {
@@ -24,4 +23,3 @@ public extension Alertify {
         processView.removeFromSuperview()
     }}
 }
-#endif
