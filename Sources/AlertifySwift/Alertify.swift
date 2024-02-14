@@ -20,6 +20,8 @@ public final class Alertify {
     private init(){
 #if os(iOS)
         processView.backgroundColor = .systemBackground
+#else
+        processView.backgroundColor = .white
 #endif
         processView.layer.cornerRadius = 10
         processView.layer.shadowRadius = 10
