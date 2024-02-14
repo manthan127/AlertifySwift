@@ -14,15 +14,12 @@ public final class Alertify {
         return rootVC
     }
 
+#if os(iOS)
     let processView = UIView()
     let activityView = UIActivityIndicatorView()
 
     private init(){
-#if os(iOS)
         processView.backgroundColor = .systemBackground
-#else
-        processView.backgroundColor = .white
-#endif
         processView.layer.cornerRadius = 10
         processView.layer.shadowRadius = 10
         processView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +46,9 @@ public final class Alertify {
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
     }
+#else
+    private init(){}
+#endif
 }
 
 extension EnvironmentValues {
