@@ -20,20 +20,8 @@ public final class Alertify {
     private init(){
 #if os(iOS)
         processView.backgroundColor = .systemBackground
-#endif
         processView.layer.cornerRadius = 10
         processView.layer.shadowRadius = 10
-        processView.translatesAutoresizingMaskIntoConstraints = false
-        activityView.translatesAutoresizingMaskIntoConstraints = false
-
-        processView.addSubview(activityView)
-        processView.addConstraints([
-            processView.heightAnchor.constraint(equalToConstant: 100),
-            processView.widthAnchor.constraint(equalToConstant: 100),
-
-            activityView.centerXAnchor.constraint(equalTo: processView.centerXAnchor),
-            activityView.centerYAnchor.constraint(equalTo: processView.centerYAnchor)
-        ])
 
         let layer = processView.layer
 
@@ -46,6 +34,19 @@ public final class Alertify {
         layer.shadowPath = UIBezierPath(rect: processView.bounds).cgPath
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
+#endif
+        processView.translatesAutoresizingMaskIntoConstraints = false
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+
+        processView.addSubview(activityView)
+        processView.addConstraints([
+            processView.heightAnchor.constraint(equalToConstant: 100),
+            processView.widthAnchor.constraint(equalToConstant: 100),
+
+            activityView.centerXAnchor.constraint(equalTo: processView.centerXAnchor),
+            activityView.centerYAnchor.constraint(equalTo: processView.centerYAnchor)
+        ])
+
     }
 }
 
